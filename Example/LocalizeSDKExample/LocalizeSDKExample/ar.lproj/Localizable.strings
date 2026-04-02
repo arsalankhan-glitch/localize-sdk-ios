@@ -1,0 +1,7 @@
+/* Arabic - keys ONLY in bundle */
+"from_bundle_only" = "هذا من Localizable.strings";
+"bundle_key" = "يعمل التراجع إلى الحزمة!";
+"app_name" = "مثال Localize SDK";
+
+"welcome" = "مرحبا (من الحزمة)";
+"greeting" = "مرحبا، %@ (من الحزمة)";

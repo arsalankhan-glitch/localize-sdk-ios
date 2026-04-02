@@ -1,0 +1,8 @@
+/* Keys ONLY in Localizable.strings - never from API. Tests native fallback. */
+"from_bundle_only" = "This comes from Localizable.strings";
+"bundle_key" = "Bundle fallback works!";
+"app_name" = "Localize SDK Example";
+
+/* Shared key - if API has it, API wins. If not, this is used. */
+"welcome" = "Welcome (from bundle)";
+"greeting" = "Hello, %@ (from bundle)";
