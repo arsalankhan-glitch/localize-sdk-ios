@@ -34,7 +34,7 @@ public enum LocalizeSDK {
         let config = LocalizeConfig(
             apiKey: apiKey,
             platform: platform,
-            baseUrl: baseUrl ?? "https://localize-dev-api.adres.ae",
+            baseUrl: baseUrl ?? "https://localize-api.adres.ae",
             onKeysUpdated: onKeysUpdated,
             fallbackLocale: fallbackLocale,
             timeoutSeconds: timeoutSeconds,

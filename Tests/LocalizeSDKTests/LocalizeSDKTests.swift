@@ -12,6 +12,11 @@ final class LocalizeSDKTests: XCTestCase {
         XCTAssertEqual(LocalizeSDK.getPlural("items", count: 5), "items")
     }
 
+    func testDefaultBaseUrlIsProduction() {
+        let config = LocalizeConfig(apiKey: "test")
+        XCTAssertEqual(config.baseUrl, "https://localize-api.adres.ae")
+    }
+
     func testConfigureAndGetString() async {
         let store = LocalizeStore(
             simple: ["en": ["welcome": "Welcome!"]],
