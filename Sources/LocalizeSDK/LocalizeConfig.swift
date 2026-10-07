@@ -33,7 +33,7 @@ public struct LocalizeConfig {
     public init(
         apiKey: String,
         platform: String = "ios",
-        baseUrl: String = "https://localize-dev-api.adres.ae",
+        baseUrl: String = "https://localize-api.adres.ae",
         onKeysUpdated: (() -> Void)? = nil,
         fallbackLocale: String? = nil,
         timeoutSeconds: Int = 10,
