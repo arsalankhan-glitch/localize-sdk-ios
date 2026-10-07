@@ -5,8 +5,7 @@ A sample iOS app to exercise the Localize SDK and verify all scenarios.
 ## Open & Run
 
 ```bash
-cd packages/ios_localize_sdk
-open Example/LocalizeSDKExample/LocalizeSDKExample.xcodeproj
+open ios/Example/LocalizeSDKExample/LocalizeSDKExample.xcodeproj
 ```
 
 Select a simulator or device and run (⌘R).
@@ -32,4 +31,6 @@ Select a simulator or device and run (⌘R).
 
 ## API Key
 
-The app uses `pk_demo_example`. With no network or invalid key, the SDK falls back to bundled strings. Configure a real API key to test API + bundle fallback together.
+The app reads the key from the `LOCALIZE_EXAMPLE_API_KEY` environment variable. In Xcode, open **Product → Scheme → Edit Scheme… → Run → Arguments → Environment Variables** and add `LOCALIZE_EXAMPLE_API_KEY` with your project's key. Don't commit the key: Xcode stores this in your user scheme, which is ignored by git.
+
+Without a key, or with no network, the SDK falls back to the bundled strings.
