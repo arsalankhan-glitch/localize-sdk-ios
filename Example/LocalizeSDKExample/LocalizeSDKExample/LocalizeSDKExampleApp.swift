@@ -23,7 +23,7 @@ struct RootView: View {
         }
         .task {
             await LocalizeSDK.configure(
-                apiKey: "pk_REDACTED",
+                apiKey: ProcessInfo.processInfo.environment["LOCALIZE_EXAMPLE_API_KEY"] ?? "",
                 onKeysUpdated: { NotificationCenter.default.post(name: .localizeKeysUpdated, object: nil) },
                 fallbackLocale: "en",
                 enableLogging: false
