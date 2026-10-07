@@ -13,12 +13,12 @@ let package = Package(
     targets: [
         .target(
             name: "LocalizeSDK",
-            path: "ios/Sources/LocalizeSDK"
+            path: "Sources/LocalizeSDK"
         ),
         .testTarget(
             name: "LocalizeSDKTests",
             dependencies: ["LocalizeSDK"],
-            path: "ios/Tests/LocalizeSDKTests"
+            path: "Tests/LocalizeSDKTests"
         ),
     ]
 )

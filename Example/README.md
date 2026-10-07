@@ -5,7 +5,7 @@ A sample iOS app to exercise the Localize SDK and verify all scenarios.
 ## Open & Run
 
 ```bash
-open ios/Example/LocalizeSDKExample/LocalizeSDKExample.xcodeproj
+open Example/LocalizeSDKExample/LocalizeSDKExample.xcodeproj
 ```
 
 Select a simulator or device and run (⌘R).
