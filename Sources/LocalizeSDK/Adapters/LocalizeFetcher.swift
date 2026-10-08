@@ -72,10 +72,13 @@ public final class URLSessionLocalizeFetcher: LocalizeFetcherProtocol {
 
         for (locale, langData) in languages {
             simple[locale] = (langData["simple"] as? [String: String]) ?? [:]
-            let pluralRaw = langData["plural"] as? [String: [String: Any]] ?? [:]
             var pluralInner: [String: [String: String]] = [:]
-            for (key, forms) in pluralRaw {
-                pluralInner[key] = forms.compactMapValues { $0 as? String }
+            if let rawPlural = langData["plural"] as? [String: Any] {
+                for (key, value) in rawPlural {
+                    guard let forms = value as? [String: Any] else { continue }
+                    let mapped = forms.compactMapValues { $0 as? String }
+                    if !mapped.isEmpty { pluralInner[key] = mapped }
+                }
             }
             plural[locale] = pluralInner
         }

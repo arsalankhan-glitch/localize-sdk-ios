@@ -67,7 +67,17 @@ public final class LocalizeSDKImpl: @unchecked Sendable {
         locale = newLocale
         Task {
             if let loaded = await cache.load(locale: newLocale) {
-                store = loaded
+                // Re-attach fallback locale data so getPlural/getString can still use it.
+                if let fallback = config.fallbackLocale, fallback != newLocale,
+                   let fallbackStore = await cache.load(locale: fallback) {
+                    var mergedSimple = loaded.simple
+                    var mergedPlural = loaded.plural
+                    if let s = fallbackStore.simple[fallback] { mergedSimple[fallback] = s }
+                    if let p = fallbackStore.plural[fallback] { mergedPlural[fallback] = p }
+                    store = LocalizeStore(simple: mergedSimple, plural: mergedPlural)
+                } else {
+                    store = loaded
+                }
             } else if let local = await localLoader() {
                 // Cache has no data for new locale; merge from bundle (e.g. API returned only one locale)
                 var newSimple = store.simple
