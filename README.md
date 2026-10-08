@@ -1,10 +1,10 @@
-# Localize iOS SDK
+# Localiq iOS SDK
 
 [![Version](https://img.shields.io/github/v/tag/arsalankhan-glitch/localize-sdk-ios?sort=semver&label=version)](https://github.com/arsalankhan-glitch/localize-sdk-ios/tags) [![License](https://img.shields.io/github/license/arsalankhan-glitch/localize-sdk-ios)](LICENSE) ![Platform](https://img.shields.io/badge/platform-iOS%2013%2B%20%7C%20macOS%2010.15%2B-blue.svg) ![Swift 5.9](https://img.shields.io/badge/Swift-5.9%2B-orange.svg) [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ## 👋 Introduction
 
-Localize lets your team manage your app's text and translations in one place and update them without shipping a new release. The SDK downloads the latest translations at runtime, caches them on the device, and falls back to the strings bundled in your app when it's offline.
+Localiq lets your team manage your app's text and translations in one place and update them without shipping a new release. The SDK downloads the latest translations at runtime, caches them on the device, and falls back to the strings bundled in your app when it's offline.
 
 This is the Swift SDK for iOS and macOS. It falls back to your app's `.strings` and `.stringsdict` files.
 

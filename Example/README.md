@@ -1,6 +1,6 @@
-# Localize SDK Example App
+# Localiq SDK Example App
 
-A sample iOS app to exercise the Localize SDK and verify all scenarios.
+A sample iOS app to exercise the Localiq SDK and verify all scenarios.
 
 ## Open & Run
 
