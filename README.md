@@ -1,10 +1,27 @@
-# Localize SDK for iOS
+# Localize iOS SDK
 
-Swift SDK that fetches translations from the Localize API and falls back to bundled strings when offline. Requires iOS 13+ or macOS 10.15+.
+[![Version](https://img.shields.io/github/v/tag/arsalankhan-glitch/localize-sdk-ios?sort=semver&label=version)](https://github.com/arsalankhan-glitch/localize-sdk-ios/tags) [![License](https://img.shields.io/github/license/arsalankhan-glitch/localize-sdk-ios)](LICENSE) ![Platform](https://img.shields.io/badge/platform-iOS%2013%2B%20%7C%20macOS%2010.15%2B-blue.svg) ![Swift 5.9](https://img.shields.io/badge/Swift-5.9%2B-orange.svg) [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
-Example app: [`Example/`](Example/). Set your API key as the `LOCALIZE_EXAMPLE_API_KEY` environment variable in the Run scheme; see the [example README](Example/README.md).
+## 👋 Introduction
 
-## Installation
+Localize lets your team manage your app's text and translations in one place and update them without shipping a new release. The SDK downloads the latest translations at runtime, caches them on the device, and falls back to the strings bundled in your app when it's offline.
+
+This is the Swift SDK for iOS and macOS. It falls back to your app's `.strings` and `.stringsdict` files.
+
+Also available for [Android](https://github.com/arsalankhan-glitch/localize-sdk-android) · [Flutter](https://github.com/arsalankhan-glitch/localize-sdk-flutter) · [React Native](https://github.com/arsalankhan-glitch/localize-sdk-react-native).
+
+To get started, sign up [here](https://localiq.yaxbi.com/signup).
+
+## 📱 Example app
+
+See [`Example/`](Example/). Set your API key as the `LOCALIZE_EXAMPLE_API_KEY` environment variable in the Run scheme; see the [example README](Example/README.md).
+
+## 📋 Requirements
+
+- iOS 13.0+ or macOS 10.15+
+- Swift 5.9+ (Xcode 15 or later)
+
+## 🎉 Installation
 
 Add the package via Swift Package Manager in Xcode:
 
@@ -22,7 +39,7 @@ targets: [
 ]
 ```
 
-## Setup
+## 🚀 Setup
 
 Call `configure` once at app startup, before the first frame renders:
 
@@ -46,7 +63,7 @@ struct MyApp: App {
 }
 ```
 
-## Usage
+## 💡 Usage
 
 ```swift
 // Simple string
@@ -65,7 +82,7 @@ LocalizeSDK.setLocale("ar")
 LocalizeSDK.refresh()
 ```
 
-## Configuration options
+## ⚙️ Configuration options
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -77,7 +94,7 @@ LocalizeSDK.refresh()
 | `enableLogging` | `Bool` | `true` | Print debug logs |
 | `onKeysUpdated` | `() -> Void` | `nil` | Called after each successful refresh |
 
-## How it works
+## 🔍 How it works
 
 1. On `configure`, the SDK fetches all translations from the API (every locale) and caches them on disk.
 2. If the fetch fails, the SDK uses the cached translations for the current locale.
@@ -85,6 +102,6 @@ LocalizeSDK.refresh()
 4. Call `refresh()` at any time to pull the latest translations in the background.
 5. Call `setLocale("ar")` to switch locale. The SDK reads that locale from the cache, with no network request.
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
