@@ -70,7 +70,8 @@ private func parseStringsContent(_ content: String) -> [String: String] {
 /// Parse .stringsdict plist for plurals.
 private func parseStringsdictFile(url: URL) -> [String: [String: String]]? {
     guard FileManager.default.fileExists(atPath: url.path),
-          let plist = NSDictionary(contentsOf: url) as? [String: Any] else {
+          let data = try? Data(contentsOf: url),
+          let plist = try? PropertyListSerialization.propertyList(from: data, options: [], format: nil) as? [String: Any] else {
         return nil
     }
     return parseStringsdictContent(plist)

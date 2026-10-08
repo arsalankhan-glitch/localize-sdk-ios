@@ -65,10 +65,13 @@ public final class FileLocalizeCache: LocalizeCacheProtocol {
 
     private static func parseLocaleFile(json: [String: Any], locale: String) -> LocalizeStore? {
         let simpleRaw = json["simple"] as? [String: String] ?? [:]
-        let pluralRaw = json["plural"] as? [String: [String: Any]] ?? [:]
         var pluralInner: [String: [String: String]] = [:]
-        for (key, forms) in pluralRaw {
-            pluralInner[key] = forms.compactMapValues { $0 as? String }
+        if let rawPlural = json["plural"] as? [String: Any] {
+            for (key, value) in rawPlural {
+                guard let forms = value as? [String: Any] else { continue }
+                let mapped = forms.compactMapValues { $0 as? String }
+                if !mapped.isEmpty { pluralInner[key] = mapped }
+            }
         }
         return LocalizeStore(
             simple: [locale: simpleRaw],
